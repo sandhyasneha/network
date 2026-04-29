@@ -1,0 +1,10 @@
+{
+  "short_name": "Nexplan Drift",
+  "name": "Nexplan Visual Drift",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#050B14",
+  "background_color": "#050B14",
+  "orientation": "portrait"
+}

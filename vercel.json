@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/recurring-audits",
+      "schedule": "0 */6 * * *"
+    }
+  ],
+  "functions": {
+    "api/analyze-drift.js": { "maxDuration": 60 },
+    "api/cron/recurring-audits.js": { "maxDuration": 60 }
+  }
+}

@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+    background-color: #050B14;
+    color: #F8FAFC;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: none;
+}
+
+/* Mono utility class */
+.font-mono {
+    font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, monospace;
+    letter-spacing: -0.01em;
+}
+
+/* Selection */
+::selection {
+    background: #1C4ED8;
+    color: #F8FAFC;
+}
+
+/* Subtle scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #050B14;
+}
+::-webkit-scrollbar-thumb {
+    background: #172554;
+    border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1C4ED8;
+}
+
+/* Grid background utility */
+.bg-grid {
+    background-image:
+        linear-gradient(to right, rgba(28, 78, 216, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(28, 78, 216, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+/* Noise overlay */
+.noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Drift box severity glows */
+.drift-box-high {
+    border: 2px solid #EF4444;
+    box-shadow: 0 0 18px rgba(239, 68, 68, 0.85), inset 0 0 12px rgba(239, 68, 68, 0.25);
+}
+.drift-box-medium {
+    border: 2px solid #F59E0B;
+    box-shadow: 0 0 16px rgba(245, 158, 11, 0.75), inset 0 0 10px rgba(245, 158, 11, 0.2);
+}
+.drift-box-low {
+    border: 2px solid #3B82F6;
+    box-shadow: 0 0 14px rgba(59, 130, 246, 0.7), inset 0 0 8px rgba(59, 130, 246, 0.18);
+}
+
+/* Crosshair corner */
+.corner {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-color: currentColor;
+    border-style: solid;
+    border-width: 0;
+}
+.corner-tl { top: 0; left: 0; border-top-width: 3px; border-left-width: 3px; }
+.corner-tr { top: 0; right: 0; border-top-width: 3px; border-right-width: 3px; }
+.corner-bl { bottom: 0; left: 0; border-bottom-width: 3px; border-left-width: 3px; }
+.corner-br { bottom: 0; right: 0; border-bottom-width: 3px; border-right-width: 3px; }
+
+/* Slider input range styling for compare */
+.compare-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    cursor: ew-resize;
+    z-index: 30;
+    margin: 0;
+}
+.compare-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    cursor: ew-resize;
+}
+.compare-slider::-moz-range-thumb {
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    cursor: ew-resize;
+}
+
+@layer base {
+    :root {
+        --background: 217 60% 5%;
+        --foreground: 210 40% 98%;
+        --card: 222 53% 10%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222 53% 10%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 222 76% 48%;
+        --primary-foreground: 210 40% 98%;
+        --secondary: 217 33% 17%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217 33% 17%;
+        --muted-foreground: 215 20% 65%;
+        --accent: 217 33% 17%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217 33% 17%;
+        --input: 217 33% 17%;
+        --ring: 222 76% 48%;
+        --radius: 0.25rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
