@@ -1,0 +1,12 @@
+{
+  "name": "nexplan-visual-drift",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vercel deployment package for Nexplan Visual Drift (frontend + serverless API)",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
+  }
+}
